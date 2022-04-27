@@ -101,3 +101,12 @@ footer {
 #column-menu{
     column-count: 3;
 }
+
+
+footer {
+    clear: both;
+    margin-top:10rem;
+    margin-left:35%;
+    font-size: 0.75rem;
+    
+}
