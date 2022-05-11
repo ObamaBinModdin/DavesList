@@ -1,0 +1,92 @@
+nav{
+    font-family: Arial;
+    font-display: bold;
+
+    background-color: #fff;
+    text-align: left;
+
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    
+    
+    border-top: 0.0625rem solid grey;
+    border-bottom: 0.0625rem solid grey;
+    
+
+    
+}
+
+.nav{
+    float: center;
+   
+}
+
+nav a{
+    padding-right: 5rem;
+    text-decoration: none;
+}
+
+nav a:hover, a:focus{
+    color: navy;
+}
+
+nav a:link, a:visited{
+    color: purple;
+}
+
+header{
+    font-family: Arial;
+    font-display: bold;
+    font-size: larger;
+
+}
+body{
+    border: 3rem;
+
+}
+
+
+
+form.sign-in{
+    border-right-width: 0.25rem;
+    border-color: black;
+    border-right-style: solid;
+    font-family: Arial;
+    padding-left: 10rem;
+
+    margin-top: 10%;
+
+    display: grid;
+    
+    page-break-inside: avoid;
+    
+    
+}
+p.copyright{
+    font-family: Arial;
+    padding-left: 10rem;
+    font-size: smaller;
+    align-content:flex-end;
+}
+form.sign-up{
+    font-family: Arial;
+    padding-left: 5rem;
+
+    
+    
+    
+    
+    
+}
+#container
+{
+    display: column;
+    column-count:1;
+    page-break-inside: avoid;
+}
+
+footer {
+    clear: both;
+    margin-top:10rem;
+    margin-left:35%;
+}
