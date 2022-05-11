@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="A Schjoneman">
+        <title>DavesList | Some fancy slogan here</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body id = "top">
+        <nav>
+            <a href="#">Menu</a>
+            <a href='#'>Sell</a>
+            <a href="../sign_in/index.html">Login</a>
+            
+            <a href='#'>Contact Us</a>
+            <a href='#'>FAQs</a>
+
+            <label for="Search bar"> Search </label>
+            <input list="Categories" id = "Categories" name = "Categories"/>
+            <input type="submit" name="submit" value="Submit"/>
+
+
+
+            
+
+            <!--Search bar function should go in the same row as the hyperlinked pages-->
+        </nav>
+        <div class="container">
+            <form class="sign-in">
+                <h1>Welcome!</h1>
+                <h2>Let's get your account set up</h2>
+
+                <p>First Name: 
+                    <input type="text" name="firstName" size="15" maxlength="30"/>
+                    Last Name: 
+                    <input type="text" name="lastName" size="15" maxlength="30"/>
+
+                </p>
+                <p>
+                    Email address
+                    <input type="text" name="state" size="48" maxlength="45"/>
+                </p>
+                <p>
+                    Profile Name
+                    <input type="text" name="state" size="49" maxlength="45"/>
+                </p>
+
+                <p>Street 1
+                    <input type="text" name="street1" size="55" maxlength="70"/>
+    
+                </p>
+                <p>Street 2
+                    <input type="text" name="street2" size="55" maxlength="70"/>
+    
+                </p>
+                <p>Town  
+                    <input type="text" name="town" size="25" maxlength="25"/>
+                    State
+                    <input type="text" name="state" size="4" maxlength="2"/>
+    
+                </p>
+                <p>
+                    Zip Code 
+                    <input type="text" name="state" size="4" maxlength="10"/>
+                </p>
+        
+                <p>
+                    Type Password
+                    <input type="text" name="state" size="55" maxlength="10"/>
+                </p>
+                <p>
+                    Repeat Password
+                    <input type="text" name="state" size="55" maxlength="10"/>
+               
+       
+
+                <input type="Submit" name="Submit" value="Submit"/>
+         </p>
+        
+    </body>
+    <form method = "POST" action = "/home">
+        {{ form.recaptcha }}
+    </form>
+    <footer>
+        <h4>Site map</h4>
+            <div id="site-menu">
+                <span id="column-menu">
+                
+                <table>
+                    <tr>
+                    <th scope="col"><h5>Buyers and Customers</h5></th>
+                    <th scope="col"><h5>Sellers and Vendors</h5></th>
+                    <th scope="col"><h5>Need help?</h5></th>
+                </tr>
+                    
+                    <tr>
+                        <td><a href="../profile/index.html">My Profile</a><br></td>
+                        <td><a href="../sign_in/index.html">Login</a><br></td>
+                        <td><a href="#">FAQS</a><br></td>
+                        
+                    
+                    </tr>
+                    <tr>
+    
+                        <td><a href="#">My Orders</a><br></td>
+                        <td><a href="../profile/index.html">My Profile</a><br></td>
+                        <td><a href="#">Contact Information</a><br></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><a href="#">Track my Orders</a><br></td>
+                        <td><a href="#">My Sales</a><br></td>
+                        <td><a href="#">Returns and Refunds</a><br></td>
+    
+                    </tr>
+                    <tr>
+    
+                        <td>
+                            <a href="#">My rewards</a><br>
+                        </td>
+                        <td><a href="#">Current Invoices</a><br></td>
+                        <td> <a href="#">Customer Service</a><br></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">My payment methods</a><br>
+                            <td><a href="#">My pending payments</a><br></td>
+                        </td>
+                    </tr>
+                        <td></td>
+                        <td><a href="#">Customer messages</a><br></td>
+                    <tr>
+                        
+                    </tr>
+                    
+                    
+                    
+                    
+                </th>
+                    
+                </table>
+                
+    
+                </span>
+                    
+    
+    
+    
+    
+    
+            </div>
+            
+            <p>&copy; 2021 DavesList.com</p>
+    
+        </footer>
+</html>
