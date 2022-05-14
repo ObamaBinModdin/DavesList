@@ -1,4 +1,4 @@
-import re
+iimport re
 import bcrypt
 
 
@@ -87,7 +87,6 @@ def getUserDetails(email):
     cursor.close()
 
     return user_id, email, firstName, lastName, shippingAddressId, billingAddressID, phoneNumber, banned
-
 
 
 # Updates user's email. If updated then return true.
@@ -345,3 +344,144 @@ def checkAdminPassword(admin_id, enteredPassword):
     return bcrypt.checkpw(enteredPassword.encode('utf8'), originalPassword.encode('utf8'))
 
 
+# Returns admin details.
+def getAdminDetails(email):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("SELECT admin_id, first_name, last_name"
+                   " FROM users WHERE email_address = '%s'" % email)
+    main.mysql.connection.commit()
+
+    admin_id, firstName, lastName = cursor.fetchall()[0]
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Adds an address. Returns void.
+def addAddress(user_id, line1, city, state, zip, country, line2 = "VOID"):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("INSERT INTO addresses (user_id, line1, line2, city, state, zip_code, country) "
+                   "VALUES (%s, %s, %s, %s, %s, %s, %s)" % (user_id, line1, line2, city, state, zip, country))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Returns user_id, line1, line2, city, state, zip_code, country.
+def getAddressDetails(address_id):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("SELECT (user_id, line1, line2, city, state, zip_code, country) WHERE address_id = %s" % address_id)
+
+    user_id, line1, line2, city, state, zip_code, country = cursor.fetchall()[0]
+    main.mysql.connection.commit()
+    cursor.close()
+
+    return user_id, line1, line2, city, state, zip_code, country
+
+
+# Delete an address
+def deleteAddress(address_id):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("DELETE FROM addresses WHERE address_id = %s" % address_id)
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Updates address line1.
+def updateAddressLineOne(address_id, line1):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE addresses SET line1 = %s WHERE address_id = %s" % (line1, address_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Updates address line2.
+def updateAddressLineTwo(address_id, line2):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE addresses SET line2 = %s WHERE address_id = %s" % (line2, address_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Updates address city.
+def updateAddressCity(address_id, city):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE addresses SET city = %s WHERE address_id = %s" % (city, address_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Updates address state.
+def updateAddressState(address_id, state):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE addresses SET state = %s WHERE address_id = %s" % (state, address_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Updates address zip.
+def updateAddressZipCode(address_id, zip_code):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE addresses SET zip_code = %s WHERE address_id = %s" % (zip_code, address_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Updates address country.
+def updateAddressCountry(address_id, country):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE addresses SET country = %s WHERE address_id = %s" % (country, address_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Adds new product.
+def addProduct(category_id, product_code, product_name, description, list_price, discount_percent):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("INSERT INTO products"
+                   " (category_id, product_code, product_name, description, list_price, discount_percent) "
+                   "VALUES (%s, %s, %s, %s, %s, %s)" % category_id, product_code, product_name, description,
+                   list_price, discount_percent)
+
+    main.mysql.connection.commit()
+    cursor.close()
