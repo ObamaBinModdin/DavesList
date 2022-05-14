@@ -379,7 +379,8 @@ def getAddressDetails(address_id):
 
     cursor = main.mysql.connection.cursor()
 
-    cursor.execute("SELECT (user_id, line1, line2, city, state, zip_code, country) WHERE address_id = %s" % address_id)
+    cursor.execute("SELECT FROM addresses "
+                   "(user_id, line1, line2, city, state, zip_code, country) WHERE address_id = %s" % address_id)
 
     user_id, line1, line2, city, state, zip_code, country = cursor.fetchall()[0]
     main.mysql.connection.commit()
@@ -482,6 +483,210 @@ def addProduct(category_id, product_code, product_name, description, list_price,
                    " (category_id, product_code, product_name, description, list_price, discount_percent) "
                    "VALUES (%s, %s, %s, %s, %s, %s)" % category_id, product_code, product_name, description,
                    list_price, discount_percent)
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Delete product.
+def deleteProduct(product_id):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("DELETE FROM products WHERE product_id = %s" % product_id)
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Update product category_id.
+def updateProductCategoryID(product_id, category_id):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE products SET category_id = %s WHERE product_id = %s" % (category_id, product_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Update product product_code.
+def updateProductCode(product_id, product_code):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE products SET product_code = %s WHERE product_id = %s" % (product_code, product_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Update product product_name.
+def updateProductName(product_id, product_name):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE products SET product_name = %s WHERE product_id = %s" % (product_name, product_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Update product description.
+def updateProductDescription(product_id, description):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE products SET description = %s WHERE product_id = %s" % (description, product_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Update product list_price.
+def updateProductListPrice(product_id, list_price):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE products SET list_price = %s WHERE product_id = %s" % (list_price, product_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Update product discount_percent.
+def updateProductDiscountPercent(product_id, discount_percent):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE products SET discount_percent = %s WHERE product_id = %s" % (discount_percent, product_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Returns category_id, product_code, product_name, description, list_price, discount_percent, date_added.
+def getProductDetails(product_id):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("SELECT products (category_id, product_code, product_name, description,"
+                   " list_price, discount_percent, date_added) WHERE product_id = %s" % product_id)
+
+    category_id, product_code, product_name, description, \
+    list_price, discount_percent, date_added = cursor.fetchall()[0]
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+    return category_id, product_code, product_name, description, list_price, discount_percent, date_added
+
+
+# Add order_items
+def addOrderItems(order_id, product_id, item_price, discount_amount, quantity):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("INSERT INTO order_items (order_id, product_id, item_price, discount_amount, quantity) "
+                   "VALUES (%s, %s, %s, %s, %s)" % (order_id, product_id, item_price, discount_amount, quantity))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Deletes order_items
+def deleteOrderItems(item_id):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("DELETE FROM order_items WHERE item_id = %s" % item_id)
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Updates order_id in order_items.
+def updateOrderItemOrderID(item_id, order_id):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE order_items SET order_id = %s WHERE item_id = %s" % (order_id, item_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Updates product_id in order_items.
+def updateOrderItemProductID(item_id, product_id):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE order_items SET product_id = %s WHERE item_id = %s" % (product_id, item_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Updates item_price in order_items.
+def updateOrderItemPrice(item_id, item_price):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE order_items SET item_price = %s WHERE item_id = %s" % (item_price, item_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Updates discount_amount in order_items.
+def updateOrderItemDiscountAmount(item_id, discount_amount):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE order_items SET discount_amount = %s WHERE item_id = %s" % (discount_amount, item_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Updates quantity in order_items.
+def updateOrderItemQuantity(item_id, quantity):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("UPDATE order_items SET quantity = %s WHERE item_id = %s" % (quantity, item_id))
+
+    main.mysql.connection.commit()
+    cursor.close()
+
+
+# Add orders.
+def addOrder(user_id, ship_amount, tax_amount, ship_address_id, card_type, card_number,
+             card_expires, billing_address_id):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("INSERT INTO orders (user_id, ship_amount, tax_amount, ship_address_id,"
+                   " card_type, card_number, card_expires, billing_address_id) "
+                   "VALUES (%s, %s, %s, %s, %s, %s, %s, %s)" % (user_id, ship_amount, tax_amount,
+                                                                ship_address_id, card_type, card_number,
+                                                                card_expires, billing_address_id))
 
     main.mysql.connection.commit()
     cursor.close()
