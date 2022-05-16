@@ -40,23 +40,23 @@
             <!--Search bar function should go in the same row as the hyperlinked pages-->
         </div>
         <div class="container">
-            <form class="sign-in">
+            <form action = "" method = "post">
                 <h1>Welcome!</h1>
                 <h2>Let's get your account set up</h2>
 
                 <p>First Name: 
-                    <input type="text" name="firstName" size="15" maxlength="30"/>
+                    <input type="text" name="firstName" size="15" maxlength="60"/>
                     Last Name: 
-                    <input type="text" name="lastName" size="15" maxlength="30"/>
+                    <input type="text" name="lastName" size="15" maxlength="60"/>
 
                 </p>
                 <p>
                     Email address
-                    <input type="text" name="state" size="48" maxlength="45"/>
+                    <input type="text" name="emailAdd" size="48" maxlength="255"/>
                 </p>
                 <p>
                     Profile Name
-                    <input type="text" name="state" size="49" maxlength="45"/>
+                    <input type="text" name="username" size="49" maxlength="45"/>
                 </p>
 
                 <p>Street 1
@@ -75,18 +75,19 @@
                 </p>
                 <p>
                     Zip Code
-                    <input type="text" name="state" size="4" maxlength="10"/>
+                    <input type="text" name="zipCode" size="4" maxlength="10"/>
                 </p>
         
                 <p>
                     Type Password
-                    <input type="text" name="state" size="55" maxlength="10"/>
+                    <input type="text" name="password" size="55" maxlength="10"/>
                 </p>
                 <p>
                     Repeat Password
-                    <input type="text" name="state" size="55" maxlength="10"/>
+                    <input type="text" name="passwordRepeat" size="55" maxlength="10"/>
                 <input type="Submit" name="Submit" value="Submit"/>
                 </p>
+                </form>
     <footer>
     <form method = "POST" action = "/home">
         {{ form.recaptcha }}
