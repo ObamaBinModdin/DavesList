@@ -1,8 +1,6 @@
 import re
 import bcrypt
-import smtplib
 
-from email.message import EmailMessage
 
 # Checks if an email has an @ and a domain. Returns boolean.
 def validateEmail(email):
@@ -65,11 +63,41 @@ def addUser(email, password, firstName, lastName, shippingID = 'null',
 
     cursor.execute("INSERT INTO users (email_address, password, first_name, last_name,"
                    " shipping_address_id, billing_address_id, phone_number, banned)"
-                   "VALUES (%s, %s, %s, %s, %s, %s, %s, %s)" %
+                   "VALUES ('%s', '%s', '%s', '%s', %s, %s, %s, %s)" %
                    (email, password, firstName, lastName, shippingID, billingID, phoneNum, banned))
 
     main.mysql.connection.commit()
     cursor.close()
+
+
+# Gets user_id based on email_address, phone_number, or username.
+def getUserID(input):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("SELECT user_id FROM users WHERE email_address = '%s'" % input)
+    main.mysql.connection.commit()
+
+    output = cursor.fetchall()
+    if cursor.rowcount > 0:
+        return output[0][0]
+
+    cursor.execute("SELECT user_id FROM users WHERE phone_number = '%s'" % input)
+    main.mysql.connection.commit()
+
+    output = cursor.fetchall()
+    if cursor.rowcount > 0:
+        return output[0][0]
+
+    cursor.execute("SELECT user_id FROM users WHERE username = '%s'" % input)
+    main.mysql.connection.commit()
+
+    output = cursor.fetchall()
+    if cursor.rowcount > 0:
+        return output[0][0]
+
+    return -1
 
 
 # Returns user's user_id, first_name, last_name, shipping_address_id, billing_address_id, phone_number, and banned.
@@ -391,6 +419,22 @@ def getAddressDetails(address_id):
     return user_id, line1, line2, city, state, zip_code, country
 
 
+
+def getAddressID(user_id, line1, line2, city, state, zip_code, country):
+    import main
+
+    cursor = main.mysql.connection.cursor()
+
+    cursor.execute("SELECT FROM addresses "
+                   "(address_id) WHERE user_id, line1, line2, city, state, zip_code, country = %s" %
+                   user_id, line1, line2, city, state, zip_code, country)
+
+    address_id = cursor.fetchall()[0]
+    main.mysql.connection.commit()
+    cursor.close()
+
+    return user_id, line1, line2, city, state, zip_code, country
+
 # Delete an address
 def deleteAddress(address_id):
     import main
@@ -692,21 +736,19 @@ def addOrder(user_id, ship_amount, tax_amount, ship_address_id, card_type, card_
 
     main.mysql.connection.commit()
     cursor.close()
-#email function 
-Email_address = "daveslistcwu"
-Email_password = "your#1groundhog"
 
 
-
+# Emailing function
 def writeEmail(reciever, content, subject):
+    Email_address = "daveslistcwu"
+    Email_password = "your#1groundhog"
+    
     msg = EmailMessage()
     msg['Subject'] = subject
     msg['From'] = Email_address
     msg['To'] = reciever
     msg.set_content(content)
-   
-    
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-        smtp.login(Email_address,Email_password)
-        smtp.send_message(msg)
 
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login(Email_address, Email_password)
+        smtp.send_message(msg)
