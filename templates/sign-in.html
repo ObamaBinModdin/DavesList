@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="A Schjoneman">
         <title>DavesList | Some fancy slogan here</title>
-        <link href="static/sign-in.css" rel="stylesheet" type="text/css">
+        <link href="style.css" rel="stylesheet" type="text/css">
     </head>
     <body id = "top">
 
@@ -29,7 +29,7 @@
             <!--Search bar function should go in the same row as the hyperlinked pages-->
         </nav>
         <div class="container">
-        <form class="sign_in" action = "" method = "post">
+        <form class="sign_in" action = "" method = "POST">
             <h1>Welcome!</h1>
             <p>Username: 
                 <input type="text" name="username" size="15" maxlength="30"/>
@@ -45,6 +45,9 @@
             <p>Forgot your <a href="../forgot-username">username?</a></p>
             <p>Forgot your <a href="../forgot-password">password?</a></p>
 
+        </form>
+        <form method = "POST" action = "/home">
+            {{ form.recaptcha }}
         </form>
         </div>
         <div class="container">
