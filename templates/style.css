@@ -1,43 +1,120 @@
-nav{
+/*nav Bar Css*/
+.navbar{
+    overflow: hidden;
+    background-color: #333;
     font-family: Arial;
     font-display: bold;
-
-    background-color: #fff;
-    text-align: left;
-
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    
-    
-    border-top: 0.0625rem solid grey;
-    border-bottom: 0.0625rem solid grey;
-    
-
-    
 }
+.navbar a{
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/*Menu Drop down Menu*/
+.DropMenu{
+    float: left;
+    overflow: hidden;
+}
+.DropMenu .MenuBtn{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+.navbar a:hover, .DropMenu:hover .MenuBtn{
+    background-color: #8a2be2;
+}
+.Drop-Menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.Drop-Menu a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.Drop-Menu a:hover {
+    background-color: #ddd;
+}
+.DropMenu:hover .Drop-Menu{
+    display: block;
+}
+
+/*Sell Button */
+.DropSell{
+    float: left;
+    overflow: hidden;
+}
+.DropSell .SellBtn{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+.navbar a:hover, .DropSell:hover .SellBtn{
+    background-color: #8a2be2;
+}
+.Drop-Sell {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.Drop-Sell a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.Drop-Sell a:hover {
+    background-color: #ddd;
+}
+.DropSell:hover .Drop-Sell{
+    display: block;
+}
+
+.navbar a{
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 h1{
     font-family: Arial;
 }
 body{
     font-family: Arial;
-}
-
-.nav{
-    float: center;
-   
-}
-
-nav a{
-    padding-right: 5rem;
-    text-decoration: none;
-}
-
-nav a:hover, a:focus{
-    color: navy;
-}
-
-nav a:link, a:visited{
-    color: purple;
 }
 
 header{
@@ -48,7 +125,6 @@ header{
 }
 body{
     border: 3rem;
-    
 
 }
 
@@ -64,10 +140,10 @@ form.sign-in{
     margin-top: 10%;
 
     display: grid;
-    
+
     page-break-inside: avoid;
-    
-    
+
+
 }
 p.copyright{
     font-family: Arial;
@@ -78,12 +154,6 @@ p.copyright{
 form.sign-up{
     font-family: Arial;
     padding-left: 5rem;
-
-    
-    
-    
-    
-    
 }
 #container
 {
@@ -97,7 +167,7 @@ footer {
     margin-top:10rem;
     margin-left:35%;
 
-    
+
 }
 #column-menu{
     column-count: 3;
@@ -109,5 +179,5 @@ footer {
     margin-top:10rem;
     margin-left:35%;
     font-size: 0.75rem;
-    
+
 }
