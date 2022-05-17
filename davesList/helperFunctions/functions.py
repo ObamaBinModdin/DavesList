@@ -1,6 +1,8 @@
 import re
 import bcrypt
+import smtplib
 
+from email.message import EmailMessage
 
 # Checks if an email has an @ and a domain. Returns boolean.
 def validateEmail(email):
@@ -690,3 +692,21 @@ def addOrder(user_id, ship_amount, tax_amount, ship_address_id, card_type, card_
 
     main.mysql.connection.commit()
     cursor.close()
+#email function 
+Email_address = "daveslistcwu"
+Email_password = "your#1groundhog"
+
+
+
+def writeEmail(reciever, content, subject):
+    msg = EmailMessage()
+    msg['Subject'] = subject
+    msg['From'] = Email_address
+    msg['To'] = reciever
+    msg.set_content(content)
+   
+    
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login(Email_address,Email_password)
+        smtp.send_message(msg)
+
