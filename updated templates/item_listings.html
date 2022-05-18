@@ -7,35 +7,98 @@
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-ItemListing
-<div class="navbar">
-    <div class="DropMenu">
-        <button class="MenuBtn">Menu
-        </button>
-        <div class="Drop-Menu">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+    <!--menu and header go on every page-->
+    <header><img src = "DaveListHeader.jpg"></header>
+
+    <nav>
+        <!--drop down menu navigation-->
+        <div class="navbar">
+            <div class="DropMenu">
+                <button class="MenuBtn">Menu
+                </button>
+                
+            <div class="Drop-Menu">
+                    <a href="#">Sign-in</a>
+                    
+                    <br>
+                    <a href="#">Edit Profile</a>
+                    <br>
+                    <a href="#">Check order status</a>
+                    <br>
+                    <a href="#">Link 1</a>
+                    
+
+            </div>
+            </div>
+            
+
+            <div class="DropSell">
+                <button class="SellBtn">Sell
+                </button>
+            <div class="Drop-Sell">
+                <a href="">Get started</a>
+                <br>
+                <a href="">Create a sale posting</a>
+                <br>
+                <a href="">Check your current postings</a>
+            </div>
+            </div>
+        <!--search bar-->
+        <!--search bar will have form function for searching site, currently not live-->
+        <div class = "search-bar">
+            <label for="Search bar"> Search </label>
+            <input type="Search-entry-text" id = "Search-entry-text" name = "Search-entry-text"size="50" maxlength="150"/>
+            <input type="submit" name="submit" value="Submit"/>
+
         </div>
-    </div>
 
-    <div class="DropSell">
-        <button class="SellBtn">Sell
-        </button>
-        <div class="Drop-Sell">
-            <a href="#">Link 3</a>
-            <a href="#">Link 4</a>
-            <a href="#">Link 5</a>
-        </div>
-    </div>
+    </nav>
 
-    <a href="../sign_in">Login</a>
-    <a href='#'>Contact Us</a>
-    <a href='#'>FAQs</a>
 
-    <!--<label for="Search bar"> Search </label> -->
-    <input list="Categories" id = "Categories" name = "Categories"/>
-    <input type="submit" name="submit" value="Submit"/>
-    <!--Search bar function should go in the same row as the hyperlinked pages-->
+    <!--Item listing form-->
+    <form>
+        <h1>Create your listing</h1>
+        <p>Title
+            <input type="text" name="Title" size="15" maxlength="60"/>
+        </p>
+        <p>Give a description about the item:</p>
+            <textarea name="textbox" cols ="25" rows="4">Enter description here</textarea>
+        <p>For this product, what is the quantity available for this listing?
+            <input type="number" name="Inventory" size="10" maxlength="5"/>
+        </p>
+        <p>Define what category this item is in: 
+            <select name="category">
+                <option value="Books">Books</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Kitchen wares">Kitchen wares</option>
+                <option value="Hardware">Hardware and Tools</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Workout gear">Workout gear</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Shoes">Shoes</option>
+            </select>
+        </p>
+        <p>
+            What is the condition of this item?
+            <select>
+                <option value="Heavily used - item shows signs of wear">Heavily used</option>
+                <option value = "Used - item has been used and may have some signs of wear">Used</option>
+                <option value = "Like new">Like new</option>
+                <option value="New">New</option>
+            </select>
+        </p>
+        <p>
+            Enter the price that you will be listing the product at:
+            <input type="number" name="product_price" size="10" maxlength="5"/>
+
+        </p>
+        <p>
+            Will you charge separate shipping and handling for this item? <input type = "checkbox" name="Shipping"> Check if yes.
+        </p>
+        <p>
+
+        </p>
+
+    </form>
 </body>
 </html>

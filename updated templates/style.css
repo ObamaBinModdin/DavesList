@@ -126,6 +126,7 @@ h2{
     margin-left: 8rem;
     font-size: 25px;
 }
+
 body{
     font-family: Arial;
     margin-top: 4rem;
@@ -137,6 +138,7 @@ body{
     
     
 }
+
 body p{
     margin-left: 6rem;
 }
@@ -185,6 +187,10 @@ footer p
     column-count: 3;
 }
 
+textarea
+{
+    margin-left: 6rem;
+}
 
 
 
