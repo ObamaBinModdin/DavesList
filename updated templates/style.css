@@ -116,14 +116,14 @@
 h1{
     font-family: Arial;
     margin-top: 10rem;
-    margin-left: 16rem;
+    margin-left: 8rem;
     font-size: 25px;
     
     
 }
 h2{
     font-family: Arial;
-    margin-left: 12rem;
+    margin-left: 8rem;
     font-size: 25px;
 }
 body{
@@ -138,18 +138,24 @@ body{
     
 }
 body p{
-    margin-left: 12rem;
+    margin-left: 6rem;
 }
 
 header{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-display: bold;
     font-size: 2rem;
-    color:aqua
+    color:aqua;
+    align-items: center;
+ 
 
-    
-    
-
+}
+img{
+    height: 8rem;
+    width: 20rem;
+    size-adjust: 70%;
+    align-items: center;
+    margin-left: 4%;
 }
 body{
     border: 3rem;
