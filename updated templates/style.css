@@ -1,3 +1,10 @@
+/*
+Color codes in the logos
+#5CC2F2
+#171DA9
+*/
+
+
 .navbar{
     overflow: hidden;
     background-color: #333;
@@ -28,7 +35,7 @@
     margin: 0;
 }
 .navbar a:hover, .DropMenu:hover .MenuBtn{
-    background-color: aqua;
+    background-color: #5CC2F2;
     color: black;
 }
 .Drop-Menu {
@@ -73,7 +80,7 @@
     margin: 0;
 }
 .navbar a:hover, .DropSell:hover .SellBtn{
-    background-color: aqua;
+    background-color: #5CC2F2;
     color: black;
 }
 .Drop-Sell {
@@ -93,7 +100,7 @@
     text-align: left;
 }
 .Drop-Sell a:hover {
-    background-color: aqua;
+    background-color: #5cc2F2;
 }
 .DropSell:hover .Drop-Sell{
     display: block;
@@ -130,10 +137,10 @@ h2{
 body{
     font-family: Arial;
     margin-top: 4rem;
-    margin-left: 4rem;
+    margin-left: 0rem;
     text-align: justify;
     color: #ffffff;
-    background: #413f3b;
+    background: #3b3e41;
     font-size: 90%;
     
     
@@ -147,8 +154,9 @@ header{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-display: bold;
     font-size: 2rem;
-    color:aqua;
+    color:#5CC2F2;
     align-items: center;
+    background-color: #5CC2F2;
  
 
 }
@@ -157,7 +165,7 @@ img{
     width: 20rem;
     size-adjust: 70%;
     align-items: center;
-    margin-left: 4%;
+    margin-left: 40%;
 }
 body{
     border: 3rem;
@@ -166,7 +174,7 @@ body{
     }
 
 a{
-    color: aqua;
+    color: #5CC2F2;
 }
 
 footer {

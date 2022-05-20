@@ -18,9 +18,10 @@
                 </button>
                 
             <div class="Drop-Menu">
-                    <a href="#">Sign-in</a>
+                    <a href="/sign-in">Sign-in</a>
                     
                     <br>
+                    <!--Need to check for sign-in confirmation-->
                     <a href="#">Edit Profile</a>
                     <br>
                     <a href="#">Check order status</a>
@@ -62,7 +63,7 @@
             <input type="text" name="Title" size="15" maxlength="60"/>
         </p>
         <p>Give a description about the item:</p>
-            <textarea name="textbox" cols ="25" rows="4">Enter description here</textarea>
+            <textarea name="textbox" cols ="25" rows="6">Enter description here</textarea>
         <p>For this product, what is the quantity available for this listing?
             <input type="number" name="Inventory" size="10" maxlength="5"/>
         </p>
@@ -94,11 +95,18 @@
         </p>
         <p>
             Will you charge separate shipping and handling for this item? <input type = "checkbox" name="Shipping"> Check if yes.
+
         </p>
         <p>
-
+            How would you prefer for customers to contact you?
         </p>
-
+        <p>How many days would you like this item to be listed for?</p>
+        <p>Please check yes to acknowledge that you agree to the site's terms and conditions.
+        <input type = "checkbox" name="Agreed_to_terms"> Check if yes, you agree to terms.</p>
+        <p>
+            <input type="submit" name="submit" value="Save listing as draft"/>
+            <input type="submit" name="submit" value="Publish listing"/>
+        </p>
     </form>
 </body>
 </html>
