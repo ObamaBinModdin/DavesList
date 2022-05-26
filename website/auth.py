@@ -12,7 +12,6 @@ def sign_in():
     details = request.form
 
     from helperFunctions import functions
-    #functions.writeEmail("conner.kaul@cwu.edu", "bosyvdgosdog;zfv;dsfsdgvil;", "test")
 
     if request.method == 'POST':
         accountCredentials = details["username"]
@@ -88,9 +87,10 @@ def sign_up():
 @auth.route('/forgot-username', methods = ['GET','POST'])
 def forgot_username():
     from helperFunctions import functions
+    details = request.form
 
     if request.method == 'POST':
-        details = request.form
+
         email = details["state"]
 
         if (functions.validateEmail(email)):
@@ -98,7 +98,7 @@ def forgot_username():
             return "Verification code sent to email if associated with an account."
         else:
             return "Invalid email"
-    return render_template("forgot-username.html")
+    return render_template("forgot-username.html", form = details)
 
 @auth.route('/profile')
 def profile():

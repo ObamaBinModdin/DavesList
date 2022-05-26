@@ -779,7 +779,7 @@ def sendVerificationCode(email):
         cursor.fetchall()
 
         if cursor.rowcount > 0:
-            cursor.execute("UPDATE verification_code SET code = %s WHERE user_id = %s" % (code, userID))
+            cursor.execute("UPDATE verification_code SET code = '%s', date_added = CURRENT_TIMESTAMP WHERE user_id = %s" % (code, userID))
 
         else:
             cursor.execute("INSERT INTO verification_code (user_id, code) VALUES (%s, '%s')" % (userID, code))
