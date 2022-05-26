@@ -1,5 +1,7 @@
 import re
 import bcrypt
+import string
+import random
 
 
 # Checks if an email has an @ and a domain. Returns boolean.
@@ -140,7 +142,7 @@ def checkEmailAvailability(email):
 
     cursor = main.mysql.cursor()
 
-    cursor.execute("SELECT * FROM users WHERE email_address = %s" % email)
+    cursor.execute("SELECT * FROM users WHERE email_address = '%s'" % email)
     main.mysql.commit()
     cursor.fetchall()
 
@@ -755,3 +757,32 @@ def writeEmail(reciever, content, subject):
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
         smtp.login(Email_address, Email_password)
         smtp.send_message(msg)
+
+
+def code_generator(size = 6, chars = string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
+
+def sendVerificationCode(email):
+    import main
+
+    if not checkEmailAvailability(email):
+        code = code_generator()
+
+        cursor = main.mysql.cursor()
+
+        writeEmail(email, code,"DavesList.store Verification Code")
+
+        userID = getUserID(email)
+
+        cursor.execute("SELECT * FROM verification_code WHERE user_id = %s" % userID)
+        main.mysql.commit()
+        cursor.fetchall()
+
+        if cursor.rowcount > 0:
+            cursor.execute("UPDATE verification_code SET code = %s WHERE user_id = %s" % (code, userID))
+
+        else:
+            cursor.execute("INSERT INTO verification_code (user_id, code) VALUES (%s, '%s')" % (userID, code))
+
+        main.mysql.commit()
+        cursor.close()

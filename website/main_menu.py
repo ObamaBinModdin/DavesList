@@ -6,3 +6,5 @@ main_menu = Blueprint('main_menu', __name__)
 def home():
     return render_template("main.html")
 
+
+

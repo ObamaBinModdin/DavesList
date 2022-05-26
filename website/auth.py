@@ -12,7 +12,7 @@ def sign_in():
     details = request.form
 
     from helperFunctions import functions
-    #functions.writeEmail("oscarford00@gmail.com", "test", "test")
+    #functions.writeEmail("conner.kaul@cwu.edu", "bosyvdgosdog;zfv;dsfsdgvil;", "test")
 
     if request.method == 'POST':
         accountCredentials = details["username"]
@@ -45,9 +45,10 @@ def forgot_password():
 
 
         if (functions.validateEmail(email)):
-            print("Email sent to", email)
+            functions.sendVerificationCode(email)
+            return "Verification code sent to email if associated with an account."
         else:
-            print("Invalid email.")
+            return "Invalid email"
 
 
 
@@ -55,17 +56,48 @@ def forgot_password():
 
 @auth.route('/sign-up', methods = ['GET','POST'])
 def sign_up():
-    if request.method == 'GET':
-        form = Widgets()
-        return render_template("sign-up.html", form = form)
+    from helperFunctions import functions
+    details = request.form
+
+    if request.method == 'POST':
+        firstName = details['firstName']
+        lastName = details['lastName']
+        email = details['emailAdd']
+        username = details['username']
+        street1 = details['street1']
+        street2 = details['street2']
+        town = details['town']
+        state = details['state']
+        zip = details['zipCode']
+        password = details['password']
+        passwordRepeat = details['passwordRepeat']
+
+
+        if not password == passwordRepeat:
+            return "Passwords do not match."
+        if not functions.validateEmail(email):
+            return "Invalid email."
+        if not functions.checkEmailAvailability(email):
+            return "Email already in use."
+
+        functions.addUser(email, password, firstName, lastName)
+        return "Success"
+
+    return render_template("sign-up.html", form = details)
 
 @auth.route('/forgot-username', methods = ['GET','POST'])
 def forgot_username():
+    from helperFunctions import functions
+
     if request.method == 'POST':
         details = request.form
         email = details["state"]
 
-        print(email)
+        if (functions.validateEmail(email)):
+            functions.sendVerificationCode(email)
+            return "Verification code sent to email if associated with an account."
+        else:
+            return "Invalid email"
     return render_template("forgot-username.html")
 
 @auth.route('/profile')
