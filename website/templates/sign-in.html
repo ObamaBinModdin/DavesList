@@ -5,129 +5,136 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="A Schjoneman">
         <title>DavesList | Some fancy slogan here</title>
-        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="/static/style.css" rel="stylesheet" type="text/css">
     </head>
     <body id = "top">
 
-        <header>DavesList...coming soon to a webpage near you.</header>
-        <!--Maybe add an image in place of the header for the design name for DavesList...make it an active link that brings back to the homepage.-->
+            <!--menu and header go on every page-->
+            <header><img src = "C:\Users\oscar\Documents\DaveListHeader.jpg"></header>
 
-        <nav>
-            <a href="../main/main.html">Menu</a>
-            <a href='#'>Sell</a>
-            <a href="sign-in.html">Login</a>
-            
-            <a href='#'>Contact Us</a>
-            <a href='#'>FAQs</a>
+            <nav>
+                <!--drop down menu navigation-->
+                <div class="navbar">
+                    <div class="DropMenu">
+                        <button class="MenuBtn"> Menu
+                        </button>
+
+                    <div class="Drop-Menu">
+                            <a href="#">Sign-in</a>
+
+                            <br>
+                            <a href="#">Edit Profile</a>
+                            <br>
+                            <a href="#">Check order status</a>
+                            <br>
+                            <a href="#">Link 1</a>
 
 
-            
-            <label for="Search bar"> Search </label>
-            <input type="Search-entry-text" id = "Search-entry-text" name = "Search-entry-text"size="50" maxlength="150"/>
-            <input type="submit" name="submit" value="Submit"/>
+                    </div>
+                    </div>
 
-            <!--Search bar function should go in the same row as the hyperlinked pages-->
-        </nav>
-        <div class="container">
-        <form class="sign-in">
-            <h1>Welcome!</h1>
-            <p>Username: 
-                <input type="text" name="username" size="15" maxlength="30"/>
 
+                    <div class="DropSell">
+                        <button class="SellBtn">  Sell
+                        </button>
+                    <div class="Drop-Sell">
+                        <a href="">Get started</a>
+                        <br>
+                        <a href="">Create a sale posting</a>
+                        <br>
+                        <a href="">Check your current postings</a>
+                    </div>
+                    </div>
+                <!--search bar-->
+                <!--search bar will have form function for searching site, currently not live-->
+                <div class = "search-bar">
+                    <label for="Search bar">   Search </label>
+                    <input type="Search-entry-text" id = "Search-entry-text" name = "Search-entry-text"size="50" maxlength="150"/>
+                    <input type="submit" name="submit" value="Submit"/>
+
+                </div>
+
+            </nav>
+
+            <!--sign-in form-->
+            <p>
+            <form class="sign_in" action = "" method = "POST">
+                <h1>Welcome!</h1>
+                <p>Username:
+                    <input type="text" name="username" size="15" maxlength="30"/>
+
+                </p>
+                <p>
+
+                    Password:
+                    <input type="password" name="password" size="15" maxlength="30"/>
+                <input type="submit" name="submit" value="Submit"/>
+                </p>
+                <br>
+                <p>Forgot your <a href="../forgot-username">username?</a></p>
+                <p>Forgot your <a href="../forgot-password">password?</a></p>
+
+            </form>
             </p>
             <p>
-
-                Password: 
-                <input type="password" name="password" size="15" maxlength="30"/>
-            <input type="submit" name="submit" value="Submit"/>
-            </p>
-        
-            <p>Forgot your <a href="../contact/forgot-username.html">username?</a></p>
-            <p>Forgot your <a href="../contact/forgot-password.html">password?</a></p>
-
-        </form>
-        </div>
-        <div class="container">
-        <form class="sign-up">
-            <p class="welcome">
-                Want to start an account?
-                <a href="../sign-up/sign-up.html">Sign up here</a>
+                <form method = "POST" action = "/home">
+                    {{ form.recaptcha }}
+                </form>
             </p>
 
-        </form>
-    </div>
 
-    </body>
-    <footer>
-        <h4>Site map</h4>
+
+
+
+
+        </body>
+        <footer>
+            <!--Site map-->
+            <h4>Site map</h4>
             <div id="site-menu">
-                <span id="column-menu">
-                
-                <table>
-                    <tr>
-                    <th scope="col"><h5>Buyers and Customers</h5></th>
-                    <th scope="col"><h5>Sellers and Vendors</h5></th>
-                    <th scope="col"><h5>Need help?</h5></th>
-                </tr>
-                    
-                    <tr>
-                        <td><a href="../profile/login">My Profile</a><br></td>
-                        <td><a href="index.html">Login</a><br></td>
-                        <td><a href="#">FAQS</a><br></td>
-                        
-                    
-                    </tr>
-                    <tr>
-    
-                        <td><a href="#">My Orders</a><br></td>
-                        <td><a href="../profile/profile.html">My Profile</a><br></td>
-                        <td><a href="#">Contact Information</a><br></td>
-                        
-                    </tr>
-                    <tr>
-                        <td><a href="#">Track my Orders</a><br></td>
-                        <td><a href="#">My Sales</a><br></td>
-                        <td><a href="#">Returns and Refunds</a><br></td>
-    
-                    </tr>
-                    <tr>
-    
-                        <td>
-                            <a href="#">My rewards</a><br>
-                        </td>
-                        <td><a href="#">Current Invoices</a><br></td>
-                        <td> <a href="#">Customer Service</a><br></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#">My payment methods</a><br>
-                            <td><a href="#">My pending payments</a><br></td>
-                        </td>
-                    </tr>
-                        <td></td>
-                        <td><a href="#">Customer messages</a><br></td>
-                    <tr>
-                        
-                    </tr>
-                    
-                    
-                    
-                    
-                </th>
-                    
-                </table>
-                
-    
-                </span>
-                    
-    
-    
-    
-    
-    
-            </div>
-            
-            <p>&copy; 2021 DavesList.com</p>
-    
 
-</html>
+
+                    <table id = "site-menu">
+                        <tr>
+                            <th scope="col"><h5>Buyers and Customers</h5></th>
+                            <th scope="col"><h5>Sellers and Vendors</h5></th>
+                            <th scope="col"><h5>Need help?</h5></th>
+                        </tr>
+                        <tr>
+                            <td><a href="../profile">My Profile</a><br></td>
+                            <td><a href="/sign-in">Login</a><br></td>
+                            <td><a href="#">FAQS</a><br></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">My Orders</a><br></td>
+                            <td><a href="../profile">My Profile</a><br></td>
+                            <td><a href="#">Contact Information</a><br></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Track my Orders</a><br></td>
+                            <td><a href="#">My Sales</a><br></td>
+                            <td><a href="#">Returns and Refunds</a><br></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">My rewards</a><br></td>
+                            <td><a href="#">Current Invoices</a><br></td>
+                            <td> <a href="#">Customer Service</a><br></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">My payment methods</a><br>
+                                <td><a href="#">My pending payments</a><br></td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><a href="#">Customer messages</a><br></td>
+                        </tr>
+
+                    </table>
+
+            </div>
+            <!--copy right-->
+            <p>&copy; 2021 DavesList.com</p>
+        </footer>
+    </html>

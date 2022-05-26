@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="A Schjoneman">
         <title>DavesList | Some fancy slogan here</title>
-        <link href="../css/style.css" rel="stylesheet" type="text/css">
+        <link href="/static/style.css" rel="stylesheet" type="text/css">
     </head>
     <body id = "top">
 
@@ -15,18 +15,18 @@
         <nav>
             <a href="#">Menu</a>
             <a href='#'>Sell</a>
-            <a href="../sign_in/index.html">Login</a>
-            
+            <a href="../sign_in">Login</a>
+
             <a href='#'>Contact Us</a>
             <a href='#'>FAQs</a>
 
 
-            
+
             <label for="Search bar"> Search </label>
             <input type="Search-entry-text" id = "Search-entry-text" name = "Search-entry-text"size="50" maxlength="150"/>
             <input type="submit" name="submit" value="Submit"/>
 
-            
+
 
             <!--Search bar function should go in the same row as the hyperlinked pages-->
         </nav>
@@ -36,12 +36,17 @@
 
             <p>Enter your email address and we'll send your account username. </p>
             <p>
+                <form action = "" method = "POST">
                 Email address
                 <input type="text" name="state" size="48" maxlength="45"/>
                 <input type="Submit" name="Submit" value="Submit"/>
+                </form>
             </p>
+            <form method = "POST" action = "/home">
+                {{ form.recaptcha }}
+            </form>
 
-            <a href="../sign_in/index.html"> return to login page</a>
+            <a href="../sign_in"> return to login page</a>
             </div>
             </body>
             <footer>
@@ -57,8 +62,8 @@
                         </tr>
                             
                             <tr>
-                                <td><a href="../profile/index.html">My Profile</a><br></td>
-                                <td><a href="../sign_in/index.html">Login</a><br></td>
+                                <td><a href="../profile">My Profile</a><br></td>
+                                <td><a href="../sign_in">Login</a><br></td>
                                 <td><a href="#">FAQS</a><br></td>
                                 
                             
@@ -66,7 +71,7 @@
                             <tr>
             
                                 <td><a href="#">My Orders</a><br></td>
-                                <td><a href="profile/index.html">My Profile</a><br></td>
+                                <td><a href="/profile">My Profile</a><br></td>
                                 <td><a href="#">Contact Information</a><br></td>
                                 
                             </tr>
