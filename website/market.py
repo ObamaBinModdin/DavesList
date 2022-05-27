@@ -14,3 +14,7 @@ def browsing():
 @market.route('/sell', methods = ['GET', 'POST'])
 def sell():
     return render_template("sell.html")
+
+@market.route('/view-listings', methods = ['GET', 'POST'])
+def view_listings():
+    return render_template("viewListings.html")

@@ -7,7 +7,7 @@ class Widgets(FlaskForm):
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/sign_in', methods = ['GET', 'POST'])
+@auth.route('/sign-in', methods = ['GET', 'POST'])
 def sign_in():
     details = request.form
 
@@ -79,7 +79,16 @@ def sign_up():
         if not functions.checkEmailAvailability(email):
             return "Email already in use."
 
-        functions.addUser(email, password, firstName, lastName)
+        country = 'NULL'
+
+        functions.addUser(email, password, firstName, lastName, username)
+        userID = functions.getUserID(email)
+
+        functions.addAddress(userID, street1, town, state, zip, country, street2)
+        addressID = functions.getAddressID(userID, street1)
+        functions.updateShippingID(userID, addressID)
+        functions.updateBillingID(userID, addressID)
+
         return "Success"
 
     return render_template("sign-up.html", form = details)
@@ -104,17 +113,3 @@ def forgot_username():
 def profile():
 
     return render_template("profile.html")
-
-@auth.route('/test', methods=['GET', 'POST'])
-def index():
-    if request.method == "POST":
-        details = request.form
-        firstName = details['fname']
-        lastName = details['lname']
-        import main
-        cur = main.mysql.cursor()
-        cur.execute("INSERT INTO test(firstName, lastName) VALUES (%s, %s)", (firstName, lastName))
-        main.mysql.commit()
-        cur.close()
-        return 'success'
-    return render_template('test.html')

@@ -55,7 +55,7 @@ def updatePassword(user_id, password):
 
 
 # Adds a new user to the database. Returns void.
-def addUser(email, password, firstName, lastName, shippingID = 'null',
+def addUser(email, password, firstName, lastName, username = 'null', shippingID = 'null',
             billingID = 'null', phoneNum = 'null', banned = 0):
     import main
 
@@ -63,10 +63,10 @@ def addUser(email, password, firstName, lastName, shippingID = 'null',
 
     password = hashPassword(password)
 
-    cursor.execute("INSERT INTO users (email_address, password, first_name, last_name,"
+    cursor.execute("INSERT INTO users (email_address, password, username, first_name, last_name,"
                    " shipping_address_id, billing_address_id, phone_number, banned)"
-                   "VALUES ('%s', '%s', '%s', '%s', %s, %s, %s, %s)" %
-                   (email, password, firstName, lastName, shippingID, billingID, phoneNum, banned))
+                   "VALUES ('%s', '%s', '%s', '%s', '%s', %s, %s, %s, %s)" %
+                   (email, password, username, firstName, lastName, shippingID, billingID, phoneNum, banned))
 
     main.mysql.commit()
     cursor.close()
@@ -184,7 +184,7 @@ def updateShippingID(user_id, newShippingID):
 
     cursor = main.mysql.cursor()
 
-    cursor.execute("UPDATE users SET shipping_address_id = %s WHERE user_id = %s" % (newShippingID, user_id))
+    cursor.execute("UPDATE users SET shipping_address_id = '%s' WHERE user_id = '%s'" % (newShippingID, user_id))
 
     main.mysql.commit()
     cursor.close()
@@ -196,7 +196,7 @@ def updateBillingID(user_id, newBillingID):
 
     cursor = main.mysql.cursor()
 
-    cursor.execute("UPDATE users SET billing_address_id = %s WHERE user_id = %s" % (newBillingID, user_id))
+    cursor.execute("UPDATE users SET billing_address_id = '%s' WHERE user_id = '%s'" % (newBillingID, user_id))
 
     main.mysql.commit()
     cursor.close()
@@ -393,13 +393,13 @@ def getAdminDetails(email):
 
 
 # Adds an address. Returns void.
-def addAddress(user_id, line1, city, state, zip, country, line2 = "VOID"):
+def addAddress(user_id, line1, city, state, zip, country, line2 = "NULL"):
     import main
 
     cursor = main.mysql.cursor()
 
     cursor.execute("INSERT INTO addresses (user_id, line1, line2, city, state, zip_code, country) "
-                   "VALUES (%s, %s, %s, %s, %s, %s, %s)" % (user_id, line1, line2, city, state, zip, country))
+                   "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')" % (user_id, line1, line2, city, state, zip, country))
 
     main.mysql.commit()
     cursor.close()
@@ -422,20 +422,18 @@ def getAddressDetails(address_id):
 
 
 
-def getAddressID(user_id, line1, line2, city, state, zip_code, country):
+def getAddressID(user_id, line1):
     import main
 
     cursor = main.mysql.cursor()
 
-    cursor.execute("SELECT FROM addresses "
-                   "(address_id) WHERE user_id, line1, line2, city, state, zip_code, country = %s" %
-                   user_id, line1, line2, city, state, zip_code, country)
+    cursor.execute("SELECT address_id FROM addresses WHERE user_id = %s AND line1 = '%s'" % (user_id, line1))
 
     address_id = cursor.fetchall()[0]
     main.mysql.commit()
     cursor.close()
 
-    return user_id, line1, line2, city, state, zip_code, country
+    return address_id
 
 # Delete an address
 def deleteAddress(address_id):
