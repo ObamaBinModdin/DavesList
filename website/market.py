@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 
 market = Blueprint('market', __name__)
 
-@market.route('/item-listings')
+@market.route('/ItemListings')
 def item_listings():
     return render_template("item-listings.html")
 
@@ -15,6 +15,6 @@ def browsing():
 def sell():
     return render_template("sell.html")
 
-@market.route('/view-listings', methods = ['GET', 'POST'])
+@market.route('/ViewListings', methods = ['GET', 'POST'])
 def view_listings():
     return render_template("viewListings.html")
