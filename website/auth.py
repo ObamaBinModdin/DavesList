@@ -9,14 +9,13 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/sign-in', methods = ['GET', 'POST'])
 def sign_in():
-    details = request.form
-
     from helperFunctions import functions
+
+    details = request.form
 
     if request.method == 'POST':
         accountCredentials = details["username"]
 
-        from helperFunctions import functions
         userID = functions.getUserID(accountCredentials)
         password = details["password"]
 
@@ -25,12 +24,13 @@ def sign_in():
         else:
             correctPassword = functions.checkPassword(userID, password)
 
-        if correctPassword:
-            return "Welcome!"
-        else:
+        if not correctPassword:
             return "Incorrect entered credentials"
+        else:
+            return render_template("main.html", form = details)
 
-    return render_template("sign-in.html", form = details)
+    else:
+        return render_template("sign-in.html", form = details)
 
 @auth.route('/forgot-password', methods = ['GET','POST'])
 def forgot_password():

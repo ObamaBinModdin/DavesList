@@ -2,6 +2,7 @@ from helperFunctions import functions
 from website import create_app
 #from flask_mysqldb import MySQL
 import pymysql
+import stripe
 
 app = create_app()
 
@@ -15,6 +16,14 @@ app.config["RECAPTCHA_PRIVATE_KEY"] = "6Lft69EfAAAAAGcg4kHDYFXpUewNcfJflBMffbz7"
 
 
 # mysql = MySQL(app)
+
+
+app.config[
+    'STRIPE_PUBLIC_KEY'] = 'pk_test_51Kzv27BXAFyYLYCy3wbEAMqVoNx8FlcNMrmCsTMqxV8YqI4kTwnmor5rJHkwNCf1bopcyfKOewv1cWnOumFAOmHc000ugscmd0'
+app.config[
+    'STRIPE_SECRET_KEY'] = 'sk_test_51Kzv27BXAFyYLYCylfDhfY9h2GxqJq7vaF54uRjcIhhJnpuMmaEdDCSXboSJ096zkGF2asNtg3kTI8STQy9Jq3WJ002ck0SQWI'
+
+stripe.api_key = app.config['STRIPE_SECRET_KEY']
 
 
 mysql = pymysql.connect(
