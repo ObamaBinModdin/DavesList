@@ -11,7 +11,7 @@ stripe.api_key= app.config['STRIPE_SECRET_KEY']
 @app.route("/index")
 def index():
     
-    return render_template('listing.html')
+    return render_template('index.html')
 
 @app.route('/stripe_pay')
 def stripe_pay():
