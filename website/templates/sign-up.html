@@ -6,7 +6,40 @@
         <meta name="author" content="A Schjoneman">
         <title>DavesList | Some fancy slogan here</title>
         <link href="/static/style.css" rel="stylesheet" type="text/css">
+
+        <script>
+
+            //to run the password match check javascript
+            function checkPassword(form) {
+                password1 = form.password.value;
+                password2 = form.passwordRepeat.value;
+
+                if (password1 == '')
+                {
+                    alert ("Required - Please enter Password");
+                }
+                
+                else if(password2 =='')
+                {
+                    alert("Required - Please re-enter Password");
+                }
+                    
+                else if(password1 != password2)
+                {
+                    alert("Passwords do not match. Please re-enter")
+                    return false;
+                }
+                //return true if passwords match   
+                else
+                {
+                    return true;
+                }
+
+
+            }
+        </script>
     </head>
+
     <body id = "top">
          <!--menu and header go on every page-->
 
@@ -57,55 +90,110 @@
 
  <!--sign-up form-->
  <div class="container">
-     <form action = "" method = "POST">
+     <form action = "" method = "POST" onSubmit = "return checkPassword(this)">
          <h1>Welcome!</h1>
          <h2>Let's get your account set up</h2>
 
-         <p>First Name:
-             <input type="text" name="firstName" size="15" maxlength="60"/>
-             Last Name:
-             <input type="text" name="lastName" size="15" maxlength="60"/>
+         <p> First Name:<label id="requiredEntry">*</label>
+            <input type = "text" id="firstName" name = "firstName" maxlength="60" required>
+         </p>
+        <p> Last Name:<label id="requiredEntry">*</label>
+             <input type="text" id = "lastName" name="lastName" size="15" maxlength="60" required/>
          </p>
          <p>
-             Email address
-             <input type="text" name="emailAdd" size="46" maxlength="255"/>
+             Email address <label id="requiredEntry">*</label>
+             <input type="text" name="emailAdd" size="46" maxlength="255" required/>
          </p>
          <p>
-             Profile Name
-             <input type="text" name="username" size="47" maxlength="45"/>
+             Username <label id="requiredEntry">*</label>
+             <input type="text" name="username" size="47" maxlength="45" required/>
          </p>
          <br>
-         <p>Street 1
-             <input type="text" name="street1" size="53" maxlength="60"/>
+         <h2>Billing Address</h2>
+         <p>Street 1 <label id="requiredEntry">*</label>
+             <input type="text" name="street1" size="53" maxlength="60"required/>
 
          </p>
          <p>Street 2
              <input type="text" name="street2" size="53" maxlength="60"/>
 
          </p>
-         <p>City
-             <input type="text" name="town" size="40" maxlength="40"/>
-             State
-             <input type="text" name="state" size="6" maxlength="2"/>
+         <p>City <label id="requiredEntry">*</label>
+             <input type="text" name="town" size="40" maxlength="40" required/>
+             State <label id="requiredEntry">*</label>
+             <input type="text" name="state" size="6" maxlength="2" required/>
 
          </p>
          <p>
-             Zip Code
-             <input type="text" name="zipCode" size="10" maxlength="10"/>
+             Zip Code <label id="requiredEntry">*</label>
+             <input type="text" name="zipCode" size="10" maxlength="10"required/>
          </p>
+         <p>Country <label id="requiredEntry">*</label>
+            <input type="text" name="zipCode" size="10" maxlength="25"required/>
+         </p>
+         
+         <h2 alt = "shipping address">Shipping Address</h2>
          <br>
+         Check here if your shipping address is separate from your billing address.
+             <input type="checkbox" id="shippingCheck" onclick="myFunction()">
+
+             
+
+             <p id="shippingAddr" style="display:none">
+                
+                    
+                    <br>Street 1
+                        <input type="text" name="street1" size="53" maxlength="60"/>
+                    <br>
+                    <br>
+                    Street 2
+                        <input type="text" name="street2" size="53" maxlength="60"/>
+                    <br>
+                    <br>
+                    City
+                        <input type="text" name="town" size="40" maxlength="40"/>
+                        State
+                        <input type="text" name="state" size="6" maxlength="2"/>
+           
+                    <br>
+                    <br>
+                        Zip Code
+                        <input type="text" name="zipCode" size="10" maxlength="10"/>
+                    
+                
+                </p>
+                <script>
+                    function myFunction() {
+                      var checkBox = document.getElementById("shippingCheck");
+                      var text = document.getElementById("shippingAddr");
+                      if (checkBox.checked == true){
+                        text.style.display = "block";
+                      } else {
+                         text.style.display = "none";
+                      }
+                    }
+                    </script>
+            
+            
+         
+         <br>
+
          <p>
-             Type Password
-             <input type="text" name="password" size="46" maxlength="255"/>
+             Type Password <label id="requiredEntry">*</label>
+             <input type="text" name="password" size="46" maxlength="255" required/>
          </p>
          <p>
-             Repeat Password
-             <input type="text" name="passwordRepeat" size="43" maxlength="255"/>
+             Repeat Password <label id="requiredEntry">*</label>
+             <input type="text" name="passwordRepeat" size="43" maxlength="255" required/>
          <input type="Submit" name="Submit" value="Submit"/>
+         </p>
+         <p>
+            <label id="requiredEntry">* Required field</label>
          </p>
          </form>
          <p>
             <form method = "POST" action = "/home">
+                
                 {{ form.recaptcha }}
             </form>
         </p>
