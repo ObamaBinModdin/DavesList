@@ -135,7 +135,7 @@
          <h2 alt = "shipping address">Shipping Address</h2>
          <br>
          Check here if your shipping address is separate from your billing address.
-             <input type="checkbox" id="shippingCheck" onclick="myFunction()">
+             <input type="checkbox" id="shippingCheck" onclick="shipFunction()">
 
              
 
@@ -163,7 +163,7 @@
                 
                 </p>
                 <script>
-                    function myFunction() {
+                    function shipFunction() {
                       var checkBox = document.getElementById("shippingCheck");
                       var text = document.getElementById("shippingAddr");
                       if (checkBox.checked == true){

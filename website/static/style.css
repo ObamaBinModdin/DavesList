@@ -213,5 +213,14 @@ textarea
     
 }
 
+#conditionItem
+{
+    align-content: left;
+}
+
+#select
+{
+    font-style: italic;
+}
 
 
