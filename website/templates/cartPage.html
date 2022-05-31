@@ -1,0 +1,114 @@
+<!--Shopping Cart-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="A Schjoneman">
+        <title>DavesList | Some fancy slogan here</title>
+        <link href="../static/style.css" rel="stylesheet" type="text/css">
+
+        <script>
+
+            //to run the password match check javascript
+            function checkPassword(form) {
+                password1 = form.password.value;
+                password2 = form.passwordRepeat.value;
+
+                if (password1 == '')
+                {
+                    alert ("Required - Please enter Password");
+                }
+                
+                else if(password2 =='')
+                {
+                    alert("Required - Please re-enter Password");
+                }
+                    
+                else if(password1 != password2)
+                {
+                    alert("Passwords do not match. Please re-enter")
+                    return false;
+                }
+                //return true if passwords match   
+                else
+                {
+                    return true;
+                }
+
+
+            }
+        </script>
+    </head>
+
+    <body id = "top">
+        <!--menu and header go on every page-->
+
+<header><img src="../static/DaveListHeader.jpg" alt="Dave's List"></header>
+<nav>
+    <!--drop down menu navigation-->
+    <div class="navbar">
+        <div class="DropMenu">
+            <button class="MenuBtn">Menu
+            </button>
+
+        <div class="Drop-Menu">
+                <a href="../sign-in">Sign-in</a>
+
+                <br>
+                <a href="profile">Edit Profile</a>
+                <br>
+                <a href="#">Check order status</a>
+                <br>
+                <a href="#">Link 1</a>
+
+
+        </div>
+        </div>
+
+
+        <div class="DropSell">
+            <button class="SellBtn">Sell
+            </button>
+        <div class="Drop-Sell">
+            <a href="/ItemListings">Get started</a>
+            <br>
+            <a href="/ItemListing">Create a sale posting</a>
+            <br>
+            <a href="/ViewListing">Check your current postings</a>
+        </div>
+        </div>
+    <!--search bar-->
+    <!--search bar will have form function for searching site, currently not live-->
+    <div class = "search-bar">
+        <label for="Search bar"> Search </label>
+        <input type="Search-entry-text" id = "Search-entry-text" name = "Search-entry-text"size="50" maxlength="150"/>
+        <input type="submit" name="submit" value="Submit"/>
+
+    </div>
+
+</nav>
+    <div class = "Cart-Container" id="Cart-Container">
+        <!--page with cart displayed in the main body area-->
+    </div>
+    <div class="Header">
+        <h3 class="Heading">Shopping Cart</h3>
+        <h5 class="Action">Remove all</h5>
+    </div>
+    <div class="Cart-Items">
+
+    </div>
+
+    <div class="counter">
+        <div class="btn">+</div>
+        <div class="count"></div>
+        <div class="btn">-</div>
+        </div>
+
+
+</body>
+<footer>
+
+
+</footer>
