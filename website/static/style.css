@@ -125,7 +125,8 @@ Color codes in the logos
 
 /*css for body and foot*/
 
-h1{
+h1
+{
     font-family: Arial;
     margin-top: 10rem;
     margin-left: 8rem;
@@ -133,13 +134,15 @@ h1{
 
 
 }
-h2{
+h2
+{
     font-family: Arial;
     margin-left: 8rem;
     font-size: 25px;
 }
 
-body{
+body
+{
     font-family: Arial;
     margin-top: 4rem;
     margin-left: 0rem;
@@ -147,24 +150,23 @@ body{
     color: #ffffff;
     background: #3b3e41;
     font-size: 90%;
-
-
 }
 
-body p{
+body p
+{
     margin-left: 6rem;
 }
 
-header{
+header
+{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-display: bold;
     font-size: 2rem;
     color:#5CC2F2;
     align-items: center;
     background-color: #5CC2F2;
-
-
 }
+
 img
 {
     height: 8rem;
@@ -173,13 +175,14 @@ img
     align-items: center;
     margin-left: 40%;
 }
-body{
+
+body
+{
     border: 3rem;
+}
 
-
-    }
-
-a{
+a
+{
     color: #5CC2F2;
 }
 
@@ -197,7 +200,8 @@ footer p
     text-align:left;
 }
 
-#column-menu{
+#column-menu
+{
     column-count: 3;
 }
 
@@ -266,6 +270,10 @@ textarea
     font-size: 18px;
   }
 
+  .produtButton
+  {
+      width:100%;
+  }
   .card button:hover {
     opacity: 0.5;
   }

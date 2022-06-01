@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="A Schjoneman">
         <title>DavesList | Some fancy slogan here</title>
-        <link href="/static/style.css" rel="stylesheet" type="text/css">
+        <link href="../static/style.css" rel="stylesheet" type="text/css">
 
         <script>
 
@@ -43,7 +43,7 @@
     <body id = "top">
          <!--menu and header go on every page-->
 
- <header><img src="/static/DaveListHeader.jpg" alt="Dave's List"></header>
+ <header><img src="../static/DaveListHeader.jpg" alt="Dave's List"></header>
  <nav>
      <!--drop down menu navigation-->
      <div class="navbar">
@@ -108,6 +108,9 @@
              Username <label id="requiredEntry">*</label>
              <input type="text" name="username" size="47" maxlength="45" required/>
          </p>
+         <p>Phone number 
+             <input type = "text" name = "phone" size = "13" maxlength = "15" placeholder = "(xxx) xxx - xxxx">
+         </p>
          <br>
          <h2>Billing Address</h2>
          <p>Street 1 <label id="requiredEntry">*</label>
@@ -120,23 +123,24 @@
          </p>
          <p>City <label id="requiredEntry">*</label>
              <input type="text" name="town" size="40" maxlength="40" required/>
+
              State <label id="requiredEntry">*</label>
              <input type="text" name="state" size="6" maxlength="2" required/>
 
          </p>
          <p>
-             Zip Code <label id="requiredEntry">*</label>
+             Zip Code <label id="requiredEntry"> * </label>
              <input type="text" name="zipCode" size="10" maxlength="10"required/>
          </p>
          <p>Country <label id="requiredEntry">*</label>
-            <input type="text" name="zipCode" size="10" maxlength="25"required/>
+            <input type="text" name="country" size="10" maxlength="25"required/>
          </p>
          
          <h2 alt = "shipping address">Shipping Address</h2>
          <br>
-         Check here if your shipping address is separate from your billing address.
+         <p>Check here if your shipping address is separate from your billing address.
              <input type="checkbox" id="shippingCheck" onclick="shipFunction()">
-
+         </p>
              
 
              <p id="shippingAddr" style="display:none">
@@ -180,11 +184,11 @@
 
          <p>
              Type Password <label id="requiredEntry">*</label>
-             <input type="text" name="password" size="46" maxlength="255" required/>
+             <input type="text" name="password" size="46" maxlength="64" required/>
          </p>
          <p>
              Repeat Password <label id="requiredEntry">*</label>
-             <input type="text" name="passwordRepeat" size="43" maxlength="255" required/>
+             <input type="text" name="passwordRepeat" size="43" maxlength="64" required/>
          <input type="Submit" name="Submit" value="Submit"/>
          </p>
          <p>
