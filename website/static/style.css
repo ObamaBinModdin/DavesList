@@ -235,6 +235,7 @@ textarea
     background-color: #5CC2F2;
     border-radius: 20px;
     box-shadow: 0px 25px 40px #128ee733;
+    align-items: center;
 }
 /*cart formatting*/
 .Cart-Items
