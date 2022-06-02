@@ -9,37 +9,8 @@
         <title>DavesList | Some fancy slogan here</title>
         <link href="../static/style.css" rel="stylesheet" type="text/css">
 
-        <script>
+       
 
-            //to run the password match check javascript
-            function checkPassword(form) {
-                password1 = form.password.value;
-                password2 = form.passwordRepeat.value;
-
-                if (password1 == '')
-                {
-                    alert ("Required - Please enter Password");
-                }
-                
-                else if(password2 =='')
-                {
-                    alert("Required - Please re-enter Password");
-                }
-                    
-                else if(password1 != password2)
-                {
-                    alert("Passwords do not match. Please re-enter")
-                    return false;
-                }
-                //return true if passwords match   
-                else
-                {
-                    return true;
-                }
-
-
-            }
-        </script>
     </head>
 
     <body id = "top">
@@ -91,23 +62,44 @@
 </nav>
     <div class = "Cart-Container" id="Cart-Container">
         <!--page with cart displayed in the main body area-->
-    </div>
-    <div class="Header">
-        <h3 class="Heading">Shopping Cart</h3>
-        <h5 class="Action">Remove all</h5>
-    </div>
-    <div class="Cart-Items">
-
-    </div>
-
-    <div class="counter">
-        <div class="btn">+</div>
-        <div class="count"></div>
-        <div class="btn">-</div>
+        <div class="Header">
+            <h3 class="Heading">Shopping Cart</h3>
+            <h5 class="Action">Remove all</h5>
         </div>
+        <div class="Cart-Items">
+
+            <div class="image-box">
+                <img src="../static/ProductImage.jpg"  />
+
+                </div>
+                    <div class="about">
+                    <h1 class="title"></h1>
+                    <h3 class="subtitle"></h3>
+                </div>
+
+                    <div class="counter">
+                        <div class="btn">-</div>
+                        <div class="count">  2  </div>
+                        <div class="btn">+</div>
+                    </div>
+
+                    <div class="prices">
+                        <div class="amount">$19.99</div>
+                        <div class="save"><u>Save for later</u></div>
+                        <div class="remove"><u>Remove</u></div>
+                    </div>
+            </div>
+                
 
 
-</body>
+
+    
+
+
+    
+
+
+
 <footer>
 
 
