@@ -1,7 +1,472 @@
 <!DOCTYPE html>
-<html>
-  <head><title>Thanks for your order!</title></head>
-  <body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="A Schjoneman">
+        <title>DavesList | Some fancy slogan here</title>
+        <style>
+            .navbar{
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+    font-display: bold;
+}
+.navbar a{
+    float: right;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: block;
+}
+/*Menu Drop down Menu*/
+.DropMenu{
+    float: left;
+    overflow: hidden;
+}
+.DropMenu .MenuBtn{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+.navbar a:hover, .DropMenu:hover .MenuBtn{
+    background-color: #5CC2F2;
+    color: black;
+}
+.Drop-Menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    text-align: left;
+
+
+}
+.Drop-Menu a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+
+}
+.Drop-Menu a:hover {
+    background-color: #ddd;
+    max-width: fit-content;
+    width:max-content;
+    display: block;
+}
+.DropMenu:hover .Drop-Menu{
+    display:block;
+}
+
+/*Sell Button */
+.DropSell{
+    float: left;
+    overflow: hidden;
+}
+.DropSell .SellBtn{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+.navbar a:hover, .DropSell:hover .SellBtn{
+    background-color: #5CC2F2;
+    color: black;
+}
+.Drop-Sell {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.Drop-Sell a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.Drop-Sell a:hover {
+    background-color: #5cc2F2;
+}
+.DropSell:hover .Drop-Sell{
+    display: block;
+}
+
+.navbar a{
+    float: left;
+}
+
+/*search bar*/
+.search-bar
+{
+    margin-top: .75rem;
+    margin-left: 2rem;
+}
+
+
+/*css for body and foot*/
+
+h1
+{
+    font-family: Arial;
+    margin-top: 10rem;
+    margin-left: 8rem;
+    font-size: 25px;
+
+
+}
+h2
+{
+    font-family: Arial;
+    margin-left: 8rem;
+    font-size: 25px;
+}
+
+body
+{
+    font-family: Arial;
+    margin-top: 4rem;
+    margin-left: 0rem;
+    text-align: justify;
+    color: #ffffff;
+    background: #3b3e41;
+    font-size: 90%;
+}
+
+body p
+{
+    margin-left: 6rem;
+}
+
+header
+{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-display: bold;
+    font-size: 2rem;
+    color:#5CC2F2;
+    align-items: center;
+    background-color: #5CC2F2;
+}
+
+img
+{
+    height: 8rem;
+    width: 20rem;
+    size-adjust: 70%;
+    align-items: center;
+    margin-left: 40%;
+}
+
+body
+{
+    border: 3rem;
+}
+
+a
+{
+    color: #5CC2F2;
+}
+
+footer {
+    clear: both;
+    margin-top: 10rem;
+    text-align: left;
+    font-size: 0.75rem;
+    margin-left: 35%;
+
+}
+
+footer p
+{
+    text-align:left;
+}
+
+#column-menu
+{
+    column-count: 3;
+}
+
+textarea
+{
+    margin-left: 6rem;
+}
+
+#requiredEntry
+{
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    
+}
+
+#conditionItem
+{
+    align-content: left;
+}
+
+#select
+{
+    font-style: italic;
+}
+
+.Cart-Container
+{
+    width: 70%;
+    height: 85%;
+    background-color: #5CC2F2;
+    border-radius: 20px;
+    box-shadow: 0px 25px 40px #128ee733;
+    align-items: center;
+}
+/*cart formatting*/
+.Cart-Items
+{
+    margin: auto;
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*product card formatting*/
+.card {
+    box-shadow: 0 4px 8px 0 #1687d933;
+    max-width: 13rem;
+    margin: 14px;
+    text-align: center;
+    font-family: arial;
+    padding-left: 5rem;
+    padding-top: 5rem;
+  }
+
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .produtButton
+  {
+      width:100%;
+  }
+  .card button:hover {
+    opacity: 0.5;
+  }
+
+  .price {
+    color: #5CC2F2;
+    font-size: 22px;
+    margin-left:0rem;
+    text-align:center;
+  }
+
+  .productImage
+  {
+      max-width: auto;
+      
+      margin-left:0rem;
+    
+  }
+
+  .Header{
+    margin: auto;
+    width: 90%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+   .Heading{
+    font-size: 20px;
+    font-family: ‘Open Sans’;
+    font-weight: 700;
+    color: #2F3841;
+   }
+   .Action{
+    font-size: 14px;
+    font-family: ‘Open Sans’;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+    border-bottom: none;
+   }
+
+  .productTitle
+  {
+    text-align: center;
+    margin-left:0rem;
+  }
+
+  .productDescription
+  {
+    text-align: center;
+    margin-left:0rem;
+  }
+
+  .Cart-Items{
+    margin: auto;
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+   .image-box{
+    width: 15%;
+    text-align: center;
+   }
+   .about{
+    height: 100%;
+   }
+   .title{
+    padding-top: 5px;
+    line-height: 10px;
+    font-size: 32px;
+    font-family: ‘Open Sans’;
+    font-weight: 800;
+    color: #202020;
+   }
+   .subtitle{
+    line-height: 10px;
+    font-size: 18px;
+    font-family: ‘Open Sans’;
+    font-weight: 600;
+    color: #909090;
+   }
+
+   .counter{
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+   .btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: ‘Open Sans’;
+    font-weight: 900;
+    color: #202020;
+    cursor: pointer;
+   }
+   .count{
+    font-size: 20px;
+    font-family: ‘Open Sans’;
+    font-weight: 900;
+    color: #202020;
+   }
+
+   .prices{
+    height: 100%;
+    text-align: right;
+   }
+   .amount
+   {
+    padding-top: 20px;
+    font-size: 26px;
+    font-family: ‘Open Sans’;
+    font-weight: 800;
+    color: #202020;
+   }
+   .save
+   {
+    padding-top: 5px;
+    font-size: 14px;
+    font-family: ‘Open Sans’;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+   }
+   .remove{
+    padding-top: 5px;
+    font-size: 14px;
+    font-family: ‘Open Sans’;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+   }
+
+        </style>
+
+    </head>
+    <body id = "top">
+
+        <header><img src="../static/DaveListHeader.jpg" alt="Dave's List" class = "headerImage" id="headerImage"></header>
+ <nav>
+     <!--drop down menu navigation-->
+     <div class="navbar">
+         <div class="DropMenu">
+             <button class="MenuBtn">Menu
+             </button>
+
+         <div class="Drop-Menu">
+                 <a href="/sign-in">Sign-in</a>
+
+                 <br>
+                 <a href="/profile">Edit Profile</a>
+                 <br>
+                 <a href="#">Check order status</a>
+                 <br>
+                 <a href="#">Link 1</a>
+
+
+         </div>
+         </div>
+
+
+         <div class="DropSell">
+             <button class="SellBtn">Sell
+             </button>
+         <div class="Drop-Sell">
+             <a href="/ItemListings">Get started</a>
+             <br>
+             <a href="/ItemListings">Create a sale posting</a>
+             <br>
+             <a href="/ViewListing">Check your current postings</a>
+         </div>
+         </div>
+     <!--search bar-->
+     <!--search bar will have form function for searching site, currently not live-->
+     <div class = "search-bar">
+         <label for="Search bar"> Search   </label>
+         <input type="Search-entry-text" id = "Search-entry-text" name = "Search-entry-text"size="50" maxlength="150"/>
+         <input type="submit" name="submit" value="Submit"/>
+
+     </div>
+
+ </nav>
     <h1>Thanks for your order!</h1>
     <p>
       We appreciate your business!
@@ -9,4 +474,82 @@
       <a href="mailto:orders@example.com">orders@example.com</a>.
     </p>
   </body>
+  <footer>
+    <h4>Site map</h4>
+        <div id="site-menu">
+            <span id="column-menu">
+                <table>
+                    <tr>
+                    <th scope="col"><h5></h5></th>
+                    <th scope="col"><h5></h5></th>
+                    <th scope="col"><h5></h5></th>
+                    
+                    </tr>
+                
+                <tr>
+                <th scope="col"><h5>Buyers and Customers</h5></th>
+                <th scope="col"><h5>Sellers and Vendors</h5></th>
+                <th scope="col"><h5>Need help?</h5></th>
+            </tr>
+
+                <tr>
+                    <td><a href="../profile">My Profile</a><br></td>
+                    <td><a href="../sign-in">Login</a><br></td>
+                    <td><a href="#">FAQS</a><br></td>
+
+
+                </tr>
+                <tr>
+
+                    <td><a href="#">My Orders</a><br></td>
+                    <td><a href="/profile">My Profile</a><br></td>
+                    <td><a href="#">Contact Information</a><br></td>
+
+                </tr>
+                <tr>
+                    <td><a href="#">Track my Orders</a><br></td>
+                    <td><a href="#">My Sales</a><br></td>
+                    <td><a href="#">Returns and Refunds</a><br></td>
+
+                </tr>
+                <tr>
+
+                    <td>
+                        <a href="#">My rewards</a><br>
+                    </td>
+                    <td><a href="#">Current Invoices</a><br></td>
+                    <td> <a href="#">Customer Service</a><br></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">My payment methods</a><br>
+                        <td><a href="#">My pending payments</a><br></td>
+                    </td>
+                </tr>
+                    <td></td>
+                    <td><a href="#">Customer messages</a><br></td>
+                <tr>
+
+                </tr>
+
+
+
+
+            </th>
+
+            </table>
+
+
+            </span>
+
+
+
+
+
+
+        </div>
+
+        <p>&copy; 2022 DavesList.store</p>
+
+    </footer>
 </html>
